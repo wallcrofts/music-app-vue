@@ -6,6 +6,7 @@
     <main>
       <section class="player">
           <h2 class="song-title">{{ current.title }}</h2>
+          {{ songs[0].src }}
       </section>
     </main>
   </div>
@@ -17,7 +18,26 @@
     name: 'App',
     data () {
       return {
-        current: 'SONG TITLE'
+        current: { 
+            title: 'SONG TITLE' 
+        },
+        songs: [
+          {
+            title: 'Alive',
+            artist: 'Sam Hulick',
+            src: require('./assets/alive.mp3')
+          },
+          {
+            title: 'Citadel',
+            artist: 'Jack Wall...',
+            src: require('./assets/citadel.mp3')
+          },
+          {
+            title: 'Gear Up',
+            artist: 'Sam Hulick',
+            src: require('./assets/gearup.mp3')
+          },
+        ]
       }
     }
   }
