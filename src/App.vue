@@ -5,8 +5,7 @@
     </header>
     <main>
       <section class="player">
-          <h2 class="song-title">{{ current.title }}</h2>
-          {{ songs[0].src }}
+          <h2 class="song-title">{{ current.title }} <span>- {{ current.artist }}</span> </h2>
       </section>
     </main>
   </div>
@@ -18,9 +17,8 @@
     name: 'App',
     data () {
       return {
-        current: { 
-            title: 'SONG TITLE' 
-        },
+        current: {},
+        index: 0,
         songs: [
           {
             title: 'Alive',
@@ -37,8 +35,14 @@
             artist: 'Sam Hulick',
             src: require('./assets/gearup.mp3')
           },
-        ]
+        ],
+        player: new Audio()
       }
+    },
+    created () {
+      this.current = this.songs[this.index];
+      this.player.src = this.current.src;
+      this.player.play();
     }
   }
 
